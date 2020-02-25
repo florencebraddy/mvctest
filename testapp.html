@@ -8,5 +8,19 @@
   </head>
   <body>
     WHAT UP WORLD!?
+    <input />
+    <button onclick="fetchSomeData()">Submit</button>
+    <div id="writetopage"></div>
+    <script>
+      function display(response) {
+        console.log(response);
+        document.getElementById("writetopage").innerHTML = response[0];
+      }
+      function fetchSomeData() {
+        fetch("http://localhost:3000/users").then(response =>
+          response.json().then(display)
+        );
+      }
+    </script>
   </body>
 </html>
